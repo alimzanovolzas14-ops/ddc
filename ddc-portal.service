@@ -1,0 +1,24 @@
+[Unit]
+Description=DDC Portal (Node.js + PostgreSQL)
+Documentation=file:/opt/ddc-portal/backend/deploy/DEPLOY.md
+After=network.target postgresql.service
+Wants=postgresql.service
+
+[Service]
+Type=simple
+User=ddc
+Group=ddc
+WorkingDirectory=/opt/ddc-portal/backend
+EnvironmentFile=/etc/ddc-portal.env
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=3
+
+# базовая изоляция
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

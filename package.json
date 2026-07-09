@@ -1,0 +1,22 @@
+{
+  "name": "ddc-portal-backend",
+  "version": "1.0.0",
+  "description": "Реальный бэкенд для портала ЦЦР: аутентификация, чат, заявки, real-time синхронизация (WebSocket). Раздаёт статический сайт.",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node -e \"process.env.DATABASE_URL?require('./db-pg').init().then(m=>m.reset()).then(()=>{console.log('БД пересоздана');process.exit(0)}):require('./db-json').reset()&&console.log('JSON пересоздан')\""
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "ws": "^8.18.0",
+    "pg": "^8.12.0"
+  },
+  "devDependencies": {
+    "pg-mem": "^3.0.5"
+  }
+}
