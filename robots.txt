@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /portal.html
+Disallow: /dashboard.html
+
+Sitemap: https://www.ddcnb.kz/sitemap.xml
